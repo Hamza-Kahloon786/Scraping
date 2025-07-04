@@ -1,0 +1,9 @@
+# Selenium Scraper Dependencies (Windows Compatible)
+selenium==4.15.2
+webdriver-manager==4.0.1
+beautifulsoup4==4.12.2
+requests==2.31.0
+python-dateutil==2.8.2
+
+# Windows-specific packages
+pywin32==306; sys_platform == "win32"

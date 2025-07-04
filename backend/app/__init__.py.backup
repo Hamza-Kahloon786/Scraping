@@ -1,0 +1,49 @@
+from flask import Flask, jsonify
+from flask_cors import CORS
+import os
+
+def create_app(config_name=None):
+    app = Flask(__name__)
+    
+    if config_name is None:
+        config_name = os.getenv('FLASK_ENV', 'development')
+    
+    if config_name == 'development':
+        from config import DevelopmentConfig
+        app.config.from_object(DevelopmentConfig)
+    else:
+        from config import DevelopmentConfig
+        app.config.from_object(DevelopmentConfig)
+    
+    from app.models import db
+    db.init_app(app)
+    
+    # THIS IS THE KEY FIX - CORS configuration
+    CORS(app, origins=['http://localhost:3000'], supports_credentials=True)
+    
+    from app.routes import api
+    app.register_blueprint(api)
+    
+    @app.errorhandler(404)
+    def not_found(error):
+        return jsonify({'error': 'Endpoint not found'}), 404
+    
+    @app.route('/')
+    def index():
+        return jsonify({
+            'message': 'Job Board API',
+            'version': '1.0.0',
+            'endpoints': {
+                'jobs': '/api/jobs',
+                'health': '/api/health'
+            }
+        })
+    
+    with app.app_context():
+        try:
+            db.create_all()
+            print("Database tables created successfully!")
+        except Exception as e:
+            print("Error creating database tables:", str(e))
+    
+    return app

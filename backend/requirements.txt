@@ -1,0 +1,12 @@
+# Backend Dependencies
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-CORS==4.0.0
+psycopg2-binary==2.9.7
+python-dotenv==1.0.0
+marshmallow==3.20.1
+flask-marshmallow==0.15.0
+marshmallow-sqlalchemy==0.29.0
+selenium==4.15.0
+webdriver-manager==4.0.1
+requests==2.31.0

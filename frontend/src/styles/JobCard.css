@@ -1,0 +1,234 @@
+/* JobCard.css - Styling for job listing cards */
+
+.job-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border-color: #007bff;
+}
+
+.job-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.job-title:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.company-location {
+  margin-bottom: 1rem;
+}
+
+.company-location .card-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-meta .badge {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.salary-range {
+  font-weight: 500;
+  color: #28a745;
+}
+
+.job-description {
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.tag-badge {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  border: 1px solid #dee2e6;
+}
+
+.tag-badge:hover {
+  background-color: #e9ecef !important;
+  cursor: pointer;
+}
+
+.action-dropdown .dropdown-toggle {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.2rem;
+}
+
+.action-dropdown .dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.action-dropdown .dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e9ecef;
+}
+
+.action-dropdown .dropdown-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.action-dropdown .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.action-dropdown .dropdown-item.text-danger:hover {
+  background-color: #f8d7da;
+  color: #721c24 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .job-card {
+    margin-bottom: 1rem;
+  }
+  
+  .job-title {
+    font-size: 1rem;
+  }
+  
+  .job-meta {
+    margin-bottom: 0.75rem;
+  }
+  
+  .job-meta .badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .tag-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .job-card .card-body {
+    padding: 1rem;
+  }
+  
+  .job-title {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+  
+  .company-location .card-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for loading states */
+.job-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.job-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+/* Special styling for scraped jobs */
+.job-card.scraped {
+  border-left: 4px solid #17a2b8;
+}
+
+/* Special styling for recent jobs */
+.job-card.recent {
+  border-left: 4px solid #28a745;
+}
+
+/* Badge customizations */
+.badge.bg-light {
+  color: #495057 !important;
+}
+
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* Button styling in cards */
+.job-card .btn-outline-primary {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.job-card .btn-outline-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Icon spacing */
+.job-card i {
+  opacity: 0.7;
+}
+
+.job-card .bi-building,
+.job-card .bi-geo-alt,
+.job-card .bi-clock,
+.job-card .bi-currency-dollar {
+  font-size: 0.9rem;
+}
+
+/* Footer styling */
+.job-card .mt-auto {
+  border-top: 1px solid #f8f9fa;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
