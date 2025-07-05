@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { jobAPI } from './services/api';
-import FilterControls from './components/FilterControls';
-import JobList from './components/JobList';
-import JobForm from './components/JobForm';
 import './App.css';
 
 function App() {
