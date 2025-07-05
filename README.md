@@ -22,11 +22,13 @@ job-board-application/
 │   ├── public/
 │   └── package.json
 ├── backend/                 # Flask API server
-│   ├── models/             # SQLAlchemy database models
-│   ├── routes/             # API route definitions
-│   ├── scraping/           # Selenium web scraper
-│   ├── run.py              # Application entry point
-│   └── requirements.txt
+│   ├── app/
+│   │   ├── models/             # SQLAlchemy database models
+│   │   ├── routes/             # API route definitions
+│   │   ├── scraping/           # Selenium web scraper
+│   │-run.py              # Application entry point
+│   │-requirements.txt
+│   
 └── README.md
 ```
 
@@ -58,10 +60,10 @@ job-board-application/
 ### API Endpoints
 ```
 GET    /api/jobs              # Get all jobs with optional filters
-GET    /api/jobs/<id>         # Get specific job by ID
+GET    /api/jobs/      # Get specific job by ID
 POST   /api/jobs              # Create new job
-PUT    /api/jobs/<id>         # Update existing job
-DELETE /api/jobs/<id>         # Delete job
+PUT    /api/jobs/        # Update existing job
+DELETE /api/jobs/         # Delete job
 ```
 
 ### Database Schema
@@ -158,7 +160,10 @@ Job Model:
 2. **Run the scraper**
    ```bash
    cd backend
-   python scraping/scraper.py
+   python app/run_scraper.py
+         OR 
+   Scrape jobs Icon from Frontend 
+
    ```
 
 ## 🎯 Usage Guide
@@ -201,14 +206,6 @@ The Selenium scraper automatically collects job data from https://www.actuarylis
 - **Duplicate Prevention**: Checks existing jobs before inserting
 - **Error Handling**: Gracefully handles missing data or page changes
 - **Batch Processing**: Processes multiple pages efficiently
-
-### Running the Scraper
-```bash
-cd backend
-python scraping/scraper.py
-
-# Optional: Limit to specific number of jobs
-python scraping/scraper.py --limit 50
 ```
 
 ## 🧪 API Testing
